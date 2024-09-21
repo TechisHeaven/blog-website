@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+
+---
+
+
+<div class={`tab-wrapper font-semibold website`} >
+    <Icon name={'website'} />
+    Website
+</div>
+<div class={`tab-wrapper font-semibold webapp`} >
+    <Icon name={'website'} />
+    Web Apps
+</div>
+<div class={`tab-wrapper font-semibold blogs`} >
+    <Icon name={'website'} />
+    Blogs Website
+</div>
+<div class={`tab-wrapper font-semibold webdesign`} >
+    <Icon name={'website'} />
+    Web Designs
+</div>
+<div class={`tab-wrapper font-semibold ecom`} >
+    <Icon name={'website'} />
+    E-Commerce
+</div>
+
+<style>
+    div{
+        font-size: 1.6em;
+        line-height: 1.4em;
+        padding: 0em .4em;
+        width: fit-content;
+        display: inline-flex;
+        align-items: center;
+        gap: .4em;
+        border-radius: .4em;
+        box-shadow: 0px 2px 2px 0px rgba(var(--minty-lime-dark));
+        background-color: rgba(var(--minty-lime));
+        color: rgba(var(--minty-lime-dark));
+        position: relative;
+    }
+
+    div.website{
+        background-color: rgba(var(--minty-lime));
+        color: rgba(var(--minty-lime-dark));
+        box-shadow: 0px 2px 2px 0px rgba(var(--minty-lime-dark));
+        transform: translate(100px, -20px);
+        rotate: 10deg;
+        z-index: 10;
+    }
+    div.webapp{
+         background-color: rgba(var(--blue));
+        color: rgba(var(--blue-dark));
+        box-shadow: 0px 2px 2px 0px rgba(var(--blue-dark));  
+        transform: translate(-160px, 4px);
+        rotate: -6deg;
+        z-index: -1;
+    }
+    div.blogs{
+         background-color: rgba(var(--orange));
+        color: rgba(var(--orange-dark));
+        box-shadow: 0px 2px 2px 0px rgba(var(--orange-dark));
+         transform: translate(140px, 8px);
+        rotate: -8deg;
+        z-index: -2;
+    }
+
+    div.webdesign{
+         background-color: rgba(var(--pink));
+        color: rgba(var(--pink-dark));
+        box-shadow: 0px 2px 2px 0px rgba(var(--pink-dark));
+        transform: translate(120px, -110px);
+        rotate: 4deg;
+        z-index:-3;
+
+    }
+    div.ecom{
+         background-color: rgba(var(--green));
+        color: rgba(var(--green-dark));
+        box-shadow: 0px 2px 2px 0px rgba(var(--green-dark));
+         transform: translate(70px, -80px);
+        rotate: 4deg;
+        z-index: -6;
+    }
+</style>
