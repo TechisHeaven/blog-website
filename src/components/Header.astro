@@ -1,22 +1,27 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+import { Icon } from 'astro-icon/components';
+import ThemeIcon from "./ThemeIcon.astro";
+
+
+
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href="/" class="inline-flex items-center gap-2"><ThemeIcon />{SITE_TITLE}</a></h2>
 		<div class="internal-links inline-flex gap-8">
 			<div class="inline-flex gap-8 items-center">
 			<HeaderLink  href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 			</div>
-					<a class="hello-btn" href="https://m.webtoo.ls/@astro" target="_blank">
-						<span class="sr-only">Connect with TechisHeaven</span>
-						Say "Hello!"
-					</a>
-		</div>
+				<a class="hello-btn" href="" target="_blank">
+					<span class="sr-only">Connect with TechisHeaven</span>
+					Say "Hello!"<span class="emoji">👋</span>
+				</a>
+			</div>
 	</nav>
 </header>
 <style>
@@ -53,7 +58,36 @@ import { SITE_TITLE } from '../consts';
 		box-shadow: 0px 2px 2px 1px rgba(var(--black), 40%);
 		transition: .2s all ease-in-out;
 		font-size: 1rem;
+		position: relative;
 	}
+
+		nav .hello-btn .emoji {
+		position: absolute;
+		top: -20px;
+		left: 80%;
+		transform: translateX(-50%);
+		opacity: 0;
+		transition: 0.5s ease-out;
+	}
+
+
+		nav .hello-btn:hover .emoji {
+		animation: dropEmoji 1s ease-out ;
+	}
+@keyframes dropEmoji {
+		0% {
+			top: -20px;
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			top: 100%;
+			opacity: 0;
+		}
+	}
+
 	nav .hello-btn:hover {
 		color: rgba(var(--white));
 		transform: translateY(-2px);
@@ -63,6 +97,32 @@ import { SITE_TITLE } from '../consts';
 		color: rgba(var(--white));
 		transform: translateY(0px);
 		box-shadow: 0px 0px 2px 1px rgba(var(--black), 40%);
+	}
+
+
+	nav .hello-btn:hover {
+		animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both infinite;
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
+		perspective: 1000px;
+	}
+
+	@keyframes shake {
+		10%, 90% {
+			transform: translate3d(-1px, -2px,  -4px);
+		}
+		
+		20%, 80% {
+			transform: translate3d(2px,  -4px,  -2px);
+		}
+
+		30%, 50%, 70% {
+			transform: translate3d(-4px,  2px,  -4px);
+		}
+
+		40%, 60% {
+			transform: translate3d(4px,  -4px,  -2px);
+		}
 	}
 
 	h2 {

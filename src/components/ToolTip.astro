@@ -2,9 +2,10 @@
 ---
 interface Props {
     text: string;
+    position: "top" | "bottom" | "left" | "right";
 }
 
-const { text} = Astro.props;
+const { text, position} = Astro.props;
 ---
 
 

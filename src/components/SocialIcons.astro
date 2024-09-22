@@ -1,22 +1,41 @@
 ---
 import { Icon } from "astro-icon/components";
 import ToolTip from "./ToolTip.astro";
+
+interface Props {
+    position?: "top" | "bottom" | "left" | "right";
+}
+
+const { position="top" } = Astro.props;
+
 ---
 
 <div class="social-icons inline-flex gap-4">
     <a href="github" >
-        <ToolTip text="github">
+        <ToolTip position={position} text="github">
             <Icon name="github" size="32" />
         </ToolTip>
     </a>
     <a href="twitter">
-        <ToolTip text="twitter">
+        <ToolTip position={position} text="twitter">
             <Icon name="twitter" size="32" />
         </ToolTip>
     </a>
     <a href="linkedIn">
-        <ToolTip text="linkedIn">
+        <ToolTip position={position} text="linkedIn">
             <Icon name="linkedIn" size="32" />
         </ToolTip>
     </a>
 </div>
+
+
+
+<style>
+    a{
+        transition: .4s all ease;
+    }
+a:hover{
+    color: rgba(var(--black));
+}
+
+</style>
