@@ -19,10 +19,14 @@
   --green: 189, 247, 188, 255;
   --green-dark: 71, 144, 136, 255;
   --pink: 241, 222, 253, 255;
+  --pink-light: 255, 231, 255, 255;
   --pink-dark: 168, 95, 220, 255;
+  --cream: 241, 239, 227, 255;
+  --bright-grey: 235, 235, 234, 255;
   --accent-dark: 0, 13, 138;
-  --black: 15, 18, 25;
+  --black: 1, 1, 0, 1;
   --red: 255, 0, 0;
+  --slate: 174, 175, 174, 255;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
   --gray-dark: 34, 41, 57;
@@ -53,7 +57,7 @@ body {
   background-size: 100% 600px;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  color: rgb(var(--gray-dark));
+  color: rgb(var(--black));
   font-size: 20px;
   line-height: 1.7;
 }

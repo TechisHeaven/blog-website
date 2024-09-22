@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import user from '../../public/client-avatar.webp';
+---
+
+<div class="flex flex-col gap-2 translate-x-48 rotate-3 -translate-y-8 max-w-[300px]">
+    <div class="inline-flex gap-2 items-end select-none">
+        <Image src={user} draggable={false} width={36} height={36} class="rounded-full aspect-square shadow-lg  object-cover" alt="Design System." />
+        <p class="message client">Hey Himanshu! - My business isn't meeting my expectations.What can I do to improve it?</p>
+    </div>
+    <div class="inline-flex gap-2 items-end select-none relative justify-end">
+        <p class="message user">Hey Sir! - I'll show you!</p>
+        <Image src={user} draggable={false} width={36} height={36} class="rounded-full aspect-square shadow-lg object-cover" alt="Design System." />
+        <span class="bg-gray-400 rounded-full absolute right-36 bottom-0 w-6 h-6 text-sm flex items-center justify-center aspect-square">
+            😍
+        </span>
+    </div>
+</div>
+
+
+<style>
+    .message{
+        padding:1em;
+        height: fit-content;
+        max-width: 220px;
+        font-size: .6em;
+        font-weight: 500;
+        box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2);
+    }
+    .client{
+        color: rgba(var(--white));
+        border-radius: 1em 1em 1em 0px;
+        background-color: rgba(var(--blue-dark));
+    }
+    .user{
+        color: rgba(var(--black));
+        border-radius: 1em 1em 0em 1em;
+        background-color: rgba(var(--white));
+    }
+</style>

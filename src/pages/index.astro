@@ -5,6 +5,8 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import HeroSectionWrappers from '../components/HeroSectionWrappers.astro';
 import SocialIcons from '../components/SocialIcons.astro';
+import BreakdownDo from '../components/BreakdownDo.astro';
+import HeroArrow from '../components/HeroArrow.astro';
 ---
 
 <!doctype html>
@@ -14,17 +16,21 @@ import SocialIcons from '../components/SocialIcons.astro';
 	</head>
 	<body>
 		<Header />
-		<main class="min-h-screen max-w-[1280px] m-auto">
-			<SocialIcons/>
-			<div class="hero-section absolute bottom-36">
-				<p class="font-medium text-gray-500">
-				🤟 Yo, I'm Himanshu, your friendly neighborhood web dev wizard...
-				</p>
-				<h1 class="font-semibold">Turning startup dreams into digital reality, one line of code at a time</h1>
-				<div class="absolute -bottom-24 right-0 z-50 w-full max-w-[500px] h-[160px]"> 
-					<HeroSectionWrappers/>
+		<main class="min-h-screen max-w-[1280px] m-auto ">
+			<HeroArrow/>
+			<div class="min-h-screen flex flex-col justify-between items-start relative">
+				<SocialIcons/>
+				<div class="hero-section absolute left-0 bottom-56">
+					<p class="font-medium text-gray-500">
+					🤟 Yo, I'm Himanshu, your friendly neighborhood web dev wizard...
+					</p>
+					<h1 class="font-semibold">Turning startup dreams into digital reality, one line of code at a time</h1>
+					<div class="absolute -bottom-24 right-0 z-50 w-full max-w-[500px] h-[160px]"> 
+						<HeroSectionWrappers/>
+					</div>
 				</div>
 			</div>
+			<BreakdownDo />
 		</main>
 		<Footer />
 	</body>

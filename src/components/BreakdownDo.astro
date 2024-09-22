@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+import WhatIDoContainer from "./WhatIDoContainer.astro";
+import SkillsContainers from "./SkillsContainers.astro";
+---
+
+<div class="py-32 flex flex-col items-center flex-wrap relative ">
+    <p class="text-orange-600 font-semibold text-sm absolute left-0"><span class="text-4xl absolute -left-6 -bottom-[50%] translate-y-[20%]">*</span> What do I do?</p>
+    <h2 class="text-center font-semibold">A Breakdown<br/>&shy; of what I do</h2>
+    <p class="text-center text-gray-500">Your go-to solution for web and mobile apps, like many<br/>&shy; founders, startups, and agencies do.</p>
+    <Icon name="arrow-2" size="160" style="filter: invert(1)" class="p-6" />
+    <h1 class="font-semibold text-right max-w-[440px] w-full">Art Direction<br>&shy;<span class="inline-flex items-center gap-4 text-right w-full "><Icon name="Arrow-1" size="100" class="max-h-8" />Design</span><br>&shy;<span class="inline-flex items-center text-left w-full gap-2">Interaction<Icon name="star" size="20" class="rotate-12" /></span> <span class="text-gray-600"><br>&shy;Creative Dev</span>
+    </h1>
+    <WhatIDoContainer />
+    <SkillsContainers />
+</div>
