@@ -1,31 +1,34 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { ViewTransitions } from 'astro:transitions';
 
 ---
 
+<ViewTransitions />
 
-<div class={`tab-wrapper font-semibold website`} >
+<div class={`tab-wrapper font-semibold website`} data-scroll-animate>
     <Icon name={'website'} />
     Website
 </div>
-<div class={`tab-wrapper font-semibold webapp`} >
+<div class={`tab-wrapper font-semibold webapp`} data-scroll-animate>
     <Icon name={'flash'} />
     Web Apps
 </div>
-<div class={`tab-wrapper font-semibold blogs`} >
+<div class={`tab-wrapper font-semibold blogs`} data-scroll-animate>
     <Icon name={'quill-pen'} />
     Blogs Website
 </div>
-<div class={`tab-wrapper font-semibold webdesign`} >
+<div class={`tab-wrapper font-semibold webdesign`} data-scroll-animate>
     <Icon name={'design-idea'} />
     Web Designs
 </div>
-<div class={`tab-wrapper font-semibold ecom`} >
+<div class={`tab-wrapper font-semibold ecom`} data-scroll-animate>
     <Icon name={'store'} />
     E-Commerce
 </div>
 
 <style>
+    
     div{
         font-size: 1.6em;
         line-height: 1.4em;
@@ -85,3 +88,60 @@ import { Icon } from 'astro-icon/components';
         z-index: -6;
     }
 </style>
+
+
+
+<script>
+  function generateRandomParams() {
+    return {
+      direction: Math.random() > .8 ? 1 : -1,
+      speed: Math.random() * 0.9 + 0.1,
+      rotationSpeed: (Math.random() * 0.1 + 0.05) * (Math.random() > 0.5 ? 1 : -1),
+      verticalShift: Math.random() * .8 - 0.15,
+      horizontalAmplitude: Math.random() * 100 + 200
+    };
+  }
+ const elements = document.querySelectorAll('[data-scroll-animate]');
+  const params = Array.from(elements).map(() => generateRandomParams());
+  const initialPositions = Array.from(elements).map(el => {
+    const style = window.getComputedStyle(el);
+    return {
+      transform: style.transform,
+      zIndex: style.zIndex
+    };
+  });
+
+  function handleScroll() {
+    const scrollPosition = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = scrollPosition / maxScroll;
+    
+    elements.forEach((el, index) => {
+      const { direction, speed, rotationSpeed, verticalShift, horizontalAmplitude } = params[index];
+      const horizontalMovement = Math.sin(scrollPosition * speed * 0.01) * horizontalAmplitude * direction;
+      const verticalMovement = scrollPosition * verticalShift;
+      const rotation = scrollPosition * rotationSpeed;
+
+      // Interpolate between animated position and initial position
+      const t = Math.max(0, Math.min(1, (scrollPercentage - 0.8) * 5)); // Start transition at 80% scroll
+      const interpolatedTransform = `
+        translate(
+          ${horizontalMovement * (1 - t)}px,
+          ${verticalMovement * (1 - t)}px
+        )
+        rotate(${rotation * (1 - t)}deg)
+      `;
+
+      (el as HTMLElement).style.transform = `${initialPositions[index].transform} ${interpolatedTransform}`;
+      (el as HTMLElement).style.zIndex = scrollPercentage > 0.9 ? initialPositions[index].zIndex : '';
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    window.addEventListener('scroll', handleScroll);
+  });
+
+  document.addEventListener('astro:before-preparation', () => {
+    window.removeEventListener('scroll', handleScroll);
+  });
+</script>

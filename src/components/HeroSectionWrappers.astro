@@ -3,7 +3,25 @@ import TabWrapper from "./TabWrapper.astro";
 
 ---
 
-
-<div class="absolute right-50 w-fit">
+<div class="absolute -bottom-24 right-0 z-50 w-full max-w-[500px] h-[160px] hero-section-wrapper"> 
     <TabWrapper/>
 </div>
+
+
+<style>
+    .hero-section-wrapper{
+        animation: move-up .4s  linear;
+        transform-origin: top center;   
+    }
+
+    @keyframes move-up {
+        0%{
+           transform: scale(.9);
+        }
+        100%{ 
+           transform: scale(1);
+        }
+    }
+
+
+</style>
