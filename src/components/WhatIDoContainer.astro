@@ -12,14 +12,14 @@ import ChatContainer from './ChatContainer.astro';
     <div class="flex w-full gap-4">
         <div class="container cont-1 p-8 rounded-3xl w-full overflow-hidden">
             <div>
-                <Image src={DesignWebAppImage} draggable={false} width={280} height={280} class="rounded-lg shadow-lg translate-x-48 -translate-y-24 rotate-[10deg]" alt="Web Apps." />
+                <Image  decoding="async" loading="lazy" src={DesignWebAppImage} draggable={false} width={280} height={280} class="rounded-lg shadow-lg translate-x-48 -translate-y-24 rotate-[10deg]" alt="Web Apps." />
                 <h5>Web apps.</h5>
                 <p>We will design sleek and responsive web apps for any business challenge.</p>
             </div>
         </div>
         <div class="container cont-2 p-8 rounded-3xl max-w-[400px]">
             <div>
-                <Image src={DesignPhoneImage} draggable={false} width={220} height={220} class=" translate-x-12" alt="Mobile Apps." />
+                <Image  decoding="async" loading="lazy" src={DesignPhoneImage} draggable={false} width={220} height={220} class=" translate-x-12" alt="Mobile Apps." />
                 <h5>Mobile apps.</h5>
                 <p>We will Design, refine, and make your app shine above the competition.</p>
             </div>
@@ -28,7 +28,8 @@ import ChatContainer from './ChatContainer.astro';
     <div class="flex w-full gap-4">
         <div class="container cont-4 p-8 rounded-3xl max-w-[400px] overflow-hidden">
             <div>
-                <Image src={DesignSystemImage} draggable={false} width={220} height={220} class="rounded-lg shadow-lg  -translate-x-2 -translate-y-24 -rotate-[10deg]" alt="Design System." />
+                <Image 
+  decoding="async" loading="lazy" src={DesignSystemImage} draggable={false} width={220} height={220} class="rounded-lg shadow-lg  -translate-x-2 -translate-y-24 -rotate-[10deg]" alt="Design System." />
                 <h5>Design System</h5>
                 <p>We'll tear apart your exisitng product and help you optimize your product for better results.</p>
             </div>

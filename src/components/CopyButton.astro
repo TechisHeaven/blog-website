@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+
+---
+
+<button id="copy-button" class="copy-button" aria-label="Copy code to clipboard">
+   <svg class="copy-icon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <Icon name="check-icon" class="check-icon">
+</button>
+
+<style>
+  .copy-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #888;
+    transition: color 0.3s ease;
+  }
+  .copy-button:hover {
+    color: #c2c2c2;
+  }
+  .copy-button svg {
+    transition: opacity 0.2s ease;
+  }
+
+  .check-icon{
+    display: none;
+  }
+
+  .copy-icon.copied {
+    display: none;
+  }
+  .copy-button .check-icon {
+    display: none;
+  }
+  .copy-button.copied .check-icon {
+    display: block;
+  }
+</style>
+
+<script>
+  const copyButton = document.getElementById('copy-button');
+  if(copyButton){
+  const copyIcon = document.querySelector('.copy-icon');
+  const checkIcon = document.querySelector('.check-icon');
+
+ 
+  copyButton.addEventListener('click', () => {
+    const codeBlock = document.querySelector('pre code');
+    if (codeBlock && copyIcon && checkIcon) {
+      navigator.clipboard.writeText(codeBlock.textContent || "").then(() => {
+        copyButton.classList.add('copied');
+        copyIcon.classList.add("copied");
+        checkIcon.classList.add("copied");
+        setTimeout(() => {
+          copyButton.classList.remove('copied');
+            copyIcon.classList.remove("copied");
+            checkIcon.classList.remove("copied");
+        }, 2000);
+      });
+    }
+  });}
+</script>

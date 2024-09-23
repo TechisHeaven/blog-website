@@ -1,7 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
-import ThemeIcon from "./ThemeIcon.astro";
+import { LINKEDIN_LINK, SITE_TITLE } from '../consts';
 
 
 
@@ -9,14 +8,14 @@ import ThemeIcon from "./ThemeIcon.astro";
 
 <header>
 	<nav>
-		<h2><a href="/" class="inline-flex items-center gap-2"><ThemeIcon />{SITE_TITLE}</a></h2>
+		<h2 class="inline-flex items-center gap-2"><a href="/" >{SITE_TITLE}</a></h2>
 		<div class="internal-links inline-flex gap-8">
 			<div class="inline-flex gap-8 items-center">
 			<HeaderLink  href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 			</div>
-				<a class="hello-btn" href="" target="_blank">
+				<a class="hello-btn" href={LINKEDIN_LINK} target="_blank">
 					<span class="sr-only">Connect with TechisHeaven</span>
 					Say "Hello!"<span class="emoji">👋</span>
 				</a>
@@ -39,6 +38,7 @@ import ThemeIcon from "./ThemeIcon.astro";
 	}
 	nav {
 		background: white;
+		opacity: 0.9;
 		border: 1px solid rgb(128, 128, 128, .4);
 		width: 100%;
 		padding: .2em ;

@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import ToolTip from "./ToolTip.astro";
+import { GITHUB_LINK, LINKEDIN_LINK, TWITTER_LINK } from "../consts";
 
 interface Props {
     position?: "top" | "bottom" | "left" | "right";
@@ -11,17 +12,17 @@ const { position="top" } = Astro.props;
 ---
 
 <div class="social-icons inline-flex gap-4">
-    <a href="github" >
+    <a aria-label="github" href={GITHUB_LINK} target="_blank">
         <ToolTip position={position} text="github">
             <Icon name="github" size="32" />
         </ToolTip>
     </a>
-    <a href="twitter">
+    <a  aria-label="twitter" href={TWITTER_LINK} target="_blank">
         <ToolTip position={position} text="twitter">
             <Icon name="twitter" size="32" />
         </ToolTip>
     </a>
-    <a href="linkedIn">
+    <a aria-label="linkedIn" href={LINKEDIN_LINK} target="_blank">
         <ToolTip position={position} text="linkedIn">
             <Icon name="linkedIn" size="32" />
         </ToolTip>

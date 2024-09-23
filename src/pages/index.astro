@@ -25,7 +25,7 @@ import Tweet from '../../public/tweet.png';
         <div class="min-h-screen flex flex-col justify-between items-start relative ">
 				<SocialIcons/>
 			<a href="https://x.com/itz_vermajii/status/1809331961481293835" target="_blank">
-				<Image src={Tweet} width={300} height={300} alt="tweet" class="absolute top-0 right-0" />
+				<Image decoding="async" loading="eager" src={Tweet} width={300} height={300} alt="tweet" class="absolute top-0 right-0" />
 			</a>
             <div class="hero-section absolute left-0 bottom-56">
                 <p class="font-medium text-gray-500" id="intro-text" transition:animate="slide">
