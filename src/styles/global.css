@@ -59,6 +59,7 @@
   font-display: swap;
 }
 body {
+  overflow-x: hidden;
   font-family: "Atkinson", sans-serif;
   margin: 0;
   padding: 0;
@@ -72,12 +73,13 @@ body {
   line-height: 1.7;
 }
 main {
+  overflow-x: hidden;
   max-width: calc(100% - 2em);
   padding: 3em 1em;
 }
 .hero-section {
   margin: auto;
-  width: 720px;
+  max-width: 720px;
 }
 
 h1,

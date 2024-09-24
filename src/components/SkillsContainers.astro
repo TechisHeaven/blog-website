@@ -5,12 +5,12 @@
 
 ---
 
-<div class="p-20 mb-20 w-full relative flex flex-col gap-16">
-    <p class="text-xs absolute left-40 top-6 cursive rotate-6">When i'm not out<br>&shy; with my bae or at Gym...</p>
+<div class="p-4 md:p-20 mb-20 w-full relative flex flex-col gap-16 overflow-hidden">
+    <p class="text-xs absolute left-40 -top-10 sm:top-6 cursive rotate-6">When i'm not out<br>&shy; with my bae or at Gym...</p>
     <h3 class="text-center">You'll catch me doing<br>&shy; a combo of these things:</h3>
 
-    <div class="containers inline-flex w-full">
-        <div class="container things -rotate-6 z-10 translate-x-10 ">
+    <div class="containers flex flex-col sm:flex-row w-full">
+        <div class="container things -rotate-6 z-10 ">
             <div class="container-content">
                 <h6 class="skill-heading text-sm">things I create</h6>
                 <ul class="skill-list">
@@ -22,7 +22,7 @@
                 </ul>
         </div>
         </div>
-        <div class="container product z-10 rotate-12 translate-y-10 ">
+        <div class="container product z-10 rotate-12">
             <div class="container-content">
                 <h6   class="skill-heading text-sm">for product in</h6>
                 <ul class="skill-list">
@@ -34,7 +34,7 @@
                 </ul>
         </div>
         </div>
-        <div class="container tools z-20 -translate-x-10 rotate-3 ">   
+        <div class="container tools z-20  rotate-3 ">   
             <div class="container-content">
                 <h6 class="skill-heading text-sm">using tools like</h6>
                 <ul class="skill-list">
@@ -187,6 +187,20 @@
 .container.things.animate { animation: slideInLeft 1s forwards; }
 .container.product.animate { animation: slideInRight 1s forwards; }
 .container.tools.animate { animation: slideInLeft 1s forwards; }
+
+
+
+@media screen and (max-width: 380px) {
+    .container.things {
+        transform: translate(0, 0);
+    }
+    .container.product {
+        transform: translate(0, 0);
+    }
+    .container.tools {
+        transform: translate(0, 0);
+    }
+}
 
 
 

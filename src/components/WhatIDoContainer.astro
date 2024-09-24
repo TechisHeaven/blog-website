@@ -9,7 +9,7 @@ import ChatContainer from './ChatContainer.astro';
 
 <!-- public/mobile-app.png public/design-webapp.png public/design-system.png -->
 <div class="flex flex-col gap-4 py-8">
-    <div class="flex w-full gap-4">
+    <div class="flex flex-col sm:flex-row w-full gap-4">
         <div class="container cont-1 p-8 rounded-3xl w-full overflow-hidden">
             <div class="parallax-container">
                 <Image  decoding="async" loading="lazy" src={DesignWebAppImage} draggable={false} width={280} height={280} class="parallax-image rounded-lg shadow-lg translate-x-48 -translate-y-24 rotate-[10deg]" alt="Web Apps." />
@@ -17,7 +17,7 @@ import ChatContainer from './ChatContainer.astro';
                 <p>We will design sleek and responsive web apps for any business challenge.</p>
             </div>
         </div>
-        <div class="container cont-2 p-8 rounded-3xl max-w-[400px]">
+        <div class="container cont-2 p-8 rounded-3xl max-w-full sm:max-w-[400px]">
             <div class="parallax-container">
                 <Image  decoding="async" loading="lazy" src={DesignPhoneImage} draggable={false} width={220} height={220} class="parallax-image  translate-x-12" alt="Mobile Apps." />
                 <h5>Mobile apps.</h5>
@@ -25,8 +25,8 @@ import ChatContainer from './ChatContainer.astro';
             </div>
         </div>
     </div>
-    <div class="flex w-full gap-4">
-        <div class="container cont-4 p-8 rounded-3xl max-w-[400px] overflow-hidden">
+    <div class="flex w-full flex-col sm:flex-row gap-4">
+        <div class="container cont-4 p-8 rounded-3xl max-w-full sm:max-w-[400px]  overflow-hidden">
             <div class="parallax-container">
                 <Image 
   decoding="async" loading="lazy" src={DesignSystemImage} draggable={false} width={220} height={220} class=" parallax-image  rounded-lg shadow-lg  -translate-x-2 -translate-y-24 -rotate-[10deg]" alt="Design System." />

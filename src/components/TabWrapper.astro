@@ -5,7 +5,6 @@ import { ViewTransitions } from 'astro:transitions';
 ---
 
 <ViewTransitions />
-
 <div class={`tab-wrapper font-semibold website`} data-scroll-animate>
     <Icon name={'website'} />
     Website
@@ -86,6 +85,28 @@ import { ViewTransitions } from 'astro:transitions';
          transform: translate(70px, -80px);
         rotate: 4deg;
         z-index: -6;
+    }
+
+
+    @media (max-width: 420px) {
+      div.webapp{
+          transform: translate(0, 4px);
+      }
+    }
+    @media (max-width: 380px) {
+      div{
+          transform: translate(0, 4px);
+      }
+
+        div.webapp{
+          transform: translate(0, 4px);
+      }
+        div.blogs{
+          transform: translate(0, 4px);
+      }
+        div.webdesign{
+          transform: translate(0, 4px);
+      }
     }
 </style>
 

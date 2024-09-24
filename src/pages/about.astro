@@ -7,8 +7,11 @@ import { MY_EMAIL_ADDRESS } from '../consts';
 	title="About Me"
 	description="Lorem ipsum dolor sit amet"
 	pubDate={new Date()}
-	heroImage="/about-me.jpeg"
+	heroImage="/about-me-1.jpg"
 >
+	<div class="chat-bubble absolute top-4 left-[50%] translate-x-[-50%] text-black text-xs bg-white p-2 px-4 rounded-full">
+		Pookie me 😁
+	</div>
 	<p>
 		👋 Hey there! I&apos;m Himanshu, a Full Stack Web Developer who has been building the web for 2+ years, sharpening my skills in the ever-evolving tech world. It&apos;s been a wild ride from “Hello World” to “How did this bug get here?”
 	</p>
@@ -25,3 +28,31 @@ import { MY_EMAIL_ADDRESS } from '../consts';
 		PS: I break it only to make it better, I promise!
 	</p>
 </Layout>
+
+<style>
+	.chat-bubble {
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	}
+
+	.chat-bubble::before {
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		border: 8px solid transparent;
+		border-top-color: white;
+		border-bottom: 0;
+		margin-left: -8px;
+	}
+
+	.chat-bubble::after {
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		border: 6px solid transparent;
+		border-top-color: white;
+		border-bottom: 0;
+		margin-left: -6px;
+	}
+</style>

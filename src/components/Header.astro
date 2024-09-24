@@ -8,7 +8,7 @@ import { LINKEDIN_LINK, SITE_TITLE } from '../consts';
 
 <header>
 	<nav>
-		<h2 class="inline-flex items-center gap-2"><a href="/" >{SITE_TITLE}</a></h2>
+		<h2 class=" items-center gap-2 hidden sm:inline-flex"><a href="/" >{SITE_TITLE}</a></h2>
 		<div class="internal-links inline-flex gap-8">
 			<div class="inline-flex gap-8 items-center">
 			<HeaderLink  href="/">Home</HeaderLink>
@@ -149,8 +149,28 @@ import { LINKEDIN_LINK, SITE_TITLE } from '../consts';
 		display: flex;
 	}
 	@media (max-width: 720px) {
-		.social-links {
-			display: none;
+		
+		nav{
+			padding: .4em .4em .4em .8em;
+		}
+		nav .internal-links{
+			width: 100%;
+			display: inline-flex;
+			justify-content: space-between;
+		}
+	}
+
+	@media (max-width: 390px) {
+		nav .internal-links{
+			width: 100%;
+			display: inline-flex;
+			justify-content: space-between;
+		}
+		.internal-links {
+			gap:.6em;
+		}
+		.internal-links div{
+			gap:.6em;
 		}
 	}
 </style>

@@ -20,6 +20,8 @@ const posts = (await getCollection('blog')).sort(
 			main {
 				width: 960px;
 			}
+
+			
 			ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -70,6 +72,10 @@ const posts = (await getCollection('blog')).sort(
 				box-shadow: var(--box-shadow);
 			}
 			@media (max-width: 720px) {
+				main {
+					width: calc(100vw - 1rem);
+				}
+
 				ul {
 					gap: 0.5em;
 				}
@@ -79,6 +85,10 @@ const posts = (await getCollection('blog')).sort(
 				}
 				ul li:first-child {
 					margin-bottom: 0;
+					width: 100vw;
+				}
+				ul li {
+					width: 100vw;
 				}
 				ul li:first-child .title {
 					font-size: 1.563em;
@@ -88,7 +98,7 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<Header />
-		<main  class="min-h-screen max-w-[1280px] m-auto">
+		<main  class="min-h-screen max-w-[1280px] m-auto w-full md:max-w-screen-lg">
 			<section>
 				<ul>
 					{

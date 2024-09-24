@@ -4,7 +4,7 @@ import SocialIcons from "./SocialIcons.astro";
 const today = new Date();
 ---
 
-<footer >
+<footer class="relative overflow-hidden min-h-[340px] h-full">
 	<div class="inline-flex justify-between w-full max-w-[1280px] mx-auto">
 		<p>
 			&copy; {today.getFullYear()} Himanshu. All rights reserved. 
@@ -14,6 +14,7 @@ const today = new Date();
 		</p>
 	</div>
 	<SocialIcons />
+	<h1 class="text-[10em] font-black absolute  -bottom-28 text-gray-400">TechisHeaven</h1>
 </footer>
 <style>
 	footer {

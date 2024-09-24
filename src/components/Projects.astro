@@ -1,0 +1,100 @@
+---
+import { Image } from "astro:assets";
+import ProjectImageFirst from "../../public/mobile-project.png";
+import ProjectImageSecond from "../../public/desktop-project.png";
+import ProjectImageThird from "../../public/desktop-project.png";
+import ProjectImageFourth from "../../public/desktop-project.png";
+---
+
+<div class="projects-container">
+    <div class="projects-wrapper">
+        <div class="projects-column left-column">
+            <div class="project" data-speed="10">
+                <Image src={ProjectImageFirst} class="w-full rounded-lg" alt="Project 1" />
+                <p class="text-gray-500 text-sm"><span class="text-black font-semibold">Mobile App -</span> A mobile app that allows users to track their daily habits and goals.</p>
+            </div>
+            <div class="project" data-speed="12">
+                <Image src={ProjectImageSecond} class="w-full rounded-lg" alt="Project 2" />
+                <p class="text-gray-500 text-sm"><span class="text-black font-semibold">Desktop App -</span> A productivity tool for managing tasks and projects efficiently.</p>
+            </div>
+        </div>
+        <div class="projects-column right-column">
+            <div class="project" data-speed="10">
+                <Image src={ProjectImageThird} class="w-full rounded-lg" alt="Project 3" />
+                <p class="text-gray-500 text-sm"><span class="text-black font-semibold">Web App -</span> An e-commerce platform with advanced search and filtering capabilities.</p>
+            </div>
+            <div class="project" data-speed="12">
+                <Image src={ProjectImageFourth} class="w-full rounded-lg" alt="Project 4" />
+                <p class="text-gray-500 text-sm"><span class="text-black font-semibold">AI Project -</span> An AI-powered chatbot for customer support and engagement.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .projects-container {
+        padding: 4rem 0;
+    }
+    .projects-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .projects-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .project {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        transition: transform 0.3s ease;
+    }
+    .project:hover {
+        transform: translateY(-5px);
+    }
+    @media (max-width: 768px) {
+        .projects-wrapper {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const leftColumn = document.querySelector('.left-column');
+        const rightColumn = document.querySelector('.right-column');
+        let lastScrollY = window.pageYOffset;
+
+        function updateProjectPositions() {
+            const currentScrollY = window.pageYOffset;
+            const deltaY = currentScrollY - lastScrollY;
+
+            if (leftColumn && rightColumn) {
+                const leftSpeed = 0.05;
+                const rightSpeed = 0.10;
+
+                const leftTranslateY = parseFloat(leftColumn.getAttribute('data-translateY') || '0') + deltaY * leftSpeed;
+                const rightTranslateY = parseFloat(rightColumn.getAttribute('data-translateY') || '0') - deltaY * rightSpeed;
+
+                leftColumn.style.transform = `translateY(${leftTranslateY}px)`;
+                rightColumn.style.transform = `translateY(${rightTranslateY}px)`;
+
+                leftColumn.setAttribute('data-translateY', leftTranslateY.toString());
+                rightColumn.setAttribute('data-translateY', rightTranslateY.toString());
+            }
+
+            lastScrollY = currentScrollY;
+            requestAnimationFrame(updateProjectPositions);
+        }
+
+        updateProjectPositions();
+    });
+</script>
+
