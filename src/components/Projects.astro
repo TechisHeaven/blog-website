@@ -65,14 +65,23 @@ import ProjectImageFourth from "../../public/desktop-project.png";
         }
     }
 </style>
+// ... existing code ...
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const leftColumn = document.querySelector('.left-column');
-        const rightColumn = document.querySelector('.right-column');
+        const leftColumn = document.querySelector('.left-column') as HTMLElement;
+        const rightColumn = document.querySelector('.right-column') as HTMLElement;
         let lastScrollY = window.pageYOffset;
+        let animationFrameId: number;
 
         function updateProjectPositions() {
+            if (window.innerWidth <= 768) {
+                // Reset transforms for mobile view
+                if (leftColumn) leftColumn.style.transform = '';
+                if (rightColumn) rightColumn.style.transform = '';
+                return;
+            }
+
             const currentScrollY = window.pageYOffset;
             const deltaY = currentScrollY - lastScrollY;
 
@@ -82,17 +91,23 @@ import ProjectImageFourth from "../../public/desktop-project.png";
 
                 const leftTranslateY = parseFloat(leftColumn.getAttribute('data-translateY') || '0') + deltaY * leftSpeed;
                 const rightTranslateY = parseFloat(rightColumn.getAttribute('data-translateY') || '0') - deltaY * rightSpeed;
-                (leftColumn as HTMLElement).style.transform = `translateY(${leftTranslateY}px)`;
-                (rightColumn as HTMLElement).style.transform = `translateY(${rightTranslateY}px)`;
+
+                leftColumn.style.transform = `translateY(${leftTranslateY}px)`;
+                rightColumn.style.transform = `translateY(${rightTranslateY}px)`;
 
                 leftColumn.setAttribute('data-translateY', leftTranslateY.toString());
                 rightColumn.setAttribute('data-translateY', rightTranslateY.toString());
-                }   
+            }   
             lastScrollY = currentScrollY;
-            requestAnimationFrame(updateProjectPositions);
+            animationFrameId = requestAnimationFrame(updateProjectPositions);
         }
 
         updateProjectPositions();
+
+        // Add resize listener to handle orientation changes
+        window.addEventListener('resize', () => {
+            cancelAnimationFrame(animationFrameId);
+            updateProjectPositions();
+        });
     });
 </script>
-
