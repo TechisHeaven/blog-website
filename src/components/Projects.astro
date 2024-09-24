@@ -82,14 +82,12 @@ import ProjectImageFourth from "../../public/desktop-project.png";
 
                 const leftTranslateY = parseFloat(leftColumn.getAttribute('data-translateY') || '0') + deltaY * leftSpeed;
                 const rightTranslateY = parseFloat(rightColumn.getAttribute('data-translateY') || '0') - deltaY * rightSpeed;
-
-                leftColumn.style.transform = `translateY(${leftTranslateY}px)`;
-                rightColumn.style.transform = `translateY(${rightTranslateY}px)`;
+                (leftColumn as HTMLElement).style.transform = `translateY(${leftTranslateY}px)`;
+                (rightColumn as HTMLElement).style.transform = `translateY(${rightTranslateY}px)`;
 
                 leftColumn.setAttribute('data-translateY', leftTranslateY.toString());
                 rightColumn.setAttribute('data-translateY', rightTranslateY.toString());
-            }
-
+                }   
             lastScrollY = currentScrollY;
             requestAnimationFrame(updateProjectPositions);
         }
