@@ -1,0 +1,9 @@
+---
+import CopyButton from "../components/CopyButton.astro";
+import type { CodeBlockLanguage } from "../types/main.type";
+---
+
+<div class="code-block-wrapper">
+  <slot/>
+  <CopyButton />
+</div>
